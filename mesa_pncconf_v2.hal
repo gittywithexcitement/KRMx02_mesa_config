@@ -314,6 +314,10 @@ net machine-is-enabled        <=  motion.motion-enabled
 net estop-out     <=  iocontrol.0.user-enable-out
 net estop-ext     =>  iocontrol.0.emc-enable-in
 
+#TODO?
+# disable charge-pump when estop is detected...
+#net estop-out charge-pump.enable iocontrol.0.user-enable-out
+
 #  ---manual tool change signals---
 
 loadusr -W hal_manualtoolchange
