@@ -8,6 +8,7 @@ loadrt hostmot2
 loadrt hm2_pci config=" num_encoders=0 num_pwmgens=0 num_stepgens=5" 
 setp    hm2_5i25.0.watchdog.timeout_ns 5000000
 # loadrt pid names=pid.x,pid.y,pid.z,pid.s
+loadrt estop_latch
 
 addf hm2_5i25.0.read          servo-thread
 addf motion-command-handler   servo-thread
@@ -17,6 +18,7 @@ addf motion-controller        servo-thread
 # addf pid.z.do-pid-calcs       servo-thread
 # addf pid.s.do-pid-calcs       servo-thread
 addf hm2_5i25.0.write         servo-thread
+addf estop-latch.0 servo-thread
 
 # ---Chargepump StepGen: 0.25 velocity = 10Khz square wave output---
 
@@ -328,8 +330,15 @@ net machine-is-enabled        <=  motion.motion-enabled
 
 #  ---estop signals---
 
-net estop-out     <=  iocontrol.0.user-enable-out
-net estop-ext     =>  iocontrol.0.emc-enable-in
+#net estop-out     <=  iocontrol.0.user-enable-out
+#net estop-ext     =>  iocontrol.0.emc-enable-in
+
+# estop chain
+# https://www.forum.linuxcnc.org/49-basic-configuration/26596-estop-out#34969
+net estop-loopout iocontrol.0.emc-enable-in <= estop-latch.0.ok-out
+net estop-loopin iocontrol.0.user-enable-out => estop-latch.0.ok-in
+net estop-reset iocontrol.0.user-request-enable => estop-latch.0.reset
+net estop-fault-in estop-latch.0.fault-in <= estop-ext
 
 #  ---manual tool change signals---
 
