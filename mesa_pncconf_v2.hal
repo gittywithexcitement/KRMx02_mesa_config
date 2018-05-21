@@ -31,6 +31,9 @@ setp   hm2_5i25.0.stepgen.04.maxaccel        0
 setp   hm2_5i25.0.stepgen.04.maxvel          0
 setp   hm2_5i25.0.stepgen.04.velocity-cmd    0.25
 
+#TODO?
+# disable charge-pump when estop is detected...
+#net estop-out charge-pump.enable iocontrol.0.user-enable-out
 net x-enable                                 => hm2_5i25.0.stepgen.04.enable
 
 # external output signals
@@ -326,10 +329,6 @@ net machine-is-enabled        <=  motion.motion-enabled
 
 net estop-out     <=  iocontrol.0.user-enable-out
 net estop-ext     =>  iocontrol.0.emc-enable-in
-
-#TODO?
-# disable charge-pump when estop is detected...
-#net estop-out charge-pump.enable iocontrol.0.user-enable-out
 
 #  ---manual tool change signals---
 
