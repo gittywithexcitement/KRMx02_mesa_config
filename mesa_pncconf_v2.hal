@@ -36,19 +36,19 @@ net x-enable                                 => hm2_5i25.0.stepgen.04.enable
 # external output signals
 
 # --- SPINDLE-ON ---
-setp hm2_5i25.0.gpio.016.is_output true
-net spindle-on hm2_5i25.0.gpio.016.out
+setp hm2_5i25.0.gpio.007.is_output true
+net spindle-on hm2_5i25.0.gpio.007.out
 
 # external input signals
+
+# --- ESTOP-EXT ---
+net estop-ext     <=  hm2_5i25.0.gpio.003.in
 
 # --- ALL-HOME ---
 net all-home     <=  hm2_5i25.0.gpio.013.in
 
 # --- PROBE-IN ---
 net probe-in     <=  hm2_5i25.0.gpio.014.in
-
-# --- ESTOP-EXT ---
-net estop-ext     <=  hm2_5i25.0.gpio.015.in
 
 #*******************
 #  AXIS X
