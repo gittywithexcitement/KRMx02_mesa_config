@@ -35,7 +35,7 @@ setp   hm2_5i25.0.stepgen.04.velocity-cmd    0.25
 # disable charge-pump when estop is detected...
 #net estop-out charge-pump.enable iocontrol.0.user-enable-out
 # Or what about using halui.machine.is-on to drive stepgen.04.enable?
-net x-enable                                 => hm2_5i25.0.stepgen.04.enable
+net chargepump_enable           => hm2_5i25.0.stepgen.04.enable
 
 # external output signals
 
@@ -328,7 +328,7 @@ net machine-is-enabled        <=  motion.motion-enabled
 
 #  ---estop signals---
 
-net estop-out     <=  iocontrol.0.user-enable-out
+net chargepump_enable     <=  iocontrol.0.user-enable-out
 net estop-ext     =>  iocontrol.0.emc-enable-in
 
 #  ---manual tool change signals---
