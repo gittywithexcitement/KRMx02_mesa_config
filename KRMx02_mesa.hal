@@ -111,7 +111,7 @@ setp   hm2_5i25.0.stepgen.01.position-scale  [AXIS_1]STEP_SCALE
 setp   hm2_5i25.0.stepgen.01.step_type        0
 setp   hm2_5i25.0.stepgen.01.maxaccel         [AXIS_1]STEPGEN_MAXACCEL
 setp   hm2_5i25.0.stepgen.01.maxvel           [AXIS_1]STEPGEN_MAXVEL
-setp    hm2_5i25.0.gpio.006.invert_output true
+#setp    hm2_5i25.0.gpio.006.invert_output true
 # TODO is the above invert_output applied to the correct GPIO?
 # for old setup:
 #x axis was inverted with:
@@ -124,13 +124,10 @@ setp    hm2_5i25.0.gpio.006.invert_output true
 #the .pin file has:
 # 5      8   IOPort       StepGen          1        Dir             (Out)
 
-# ---closedloop stepper signals---
+# Position command and enable
 
 net y-pos-cmd    <= axis.1.motor-pos-cmd
-net y-vel-cmd    <= axis.1.joint-vel-cmd
-net y-output     => hm2_5i25.0.stepgen.01.velocity-cmd
-net y-pos-fb     <= hm2_5i25.0.stepgen.01.position-fb
-net y-pos-fb     => axis.1.motor-pos-fb
+net y-pos-cmd    => hm2_5i25.0.stepgen.01.position-cmd
 net y-enable     <= axis.1.amp-enable-out
 net y-enable     => hm2_5i25.0.stepgen.01.enable
 
@@ -147,8 +144,8 @@ setp   hm2_5i25.0.stepgen.03.maxvel           [AXIS_1]STEPGEN_MAXVEL
 
 # ---Tandem stepper signals---
 
-net y-output                             => hm2_5i25.0.stepgen.03.velocity-cmd
-net y-enable                             => hm2_5i25.0.stepgen.03.enable
+net y-pos-cmd    => hm2_5i25.0.stepgen.03.position-cmd
+net y-enable     => hm2_5i25.0.stepgen.03.enable
 
 # ---setup home / limit switch signals---
 
