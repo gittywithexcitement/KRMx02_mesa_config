@@ -161,11 +161,10 @@ setp   hm2_5i25.0.stepgen.02.step_type        0
 setp   hm2_5i25.0.stepgen.02.maxaccel         [AXIS_2]STEPGEN_MAXACCEL
 setp   hm2_5i25.0.stepgen.02.maxvel           [AXIS_2]STEPGEN_MAXVEL
 
-# ---closedloop stepper signals---
+# Position command, feedback, and enable
 
 net z-pos-cmd    <= axis.2.motor-pos-cmd
-net z-vel-cmd    <= axis.2.joint-vel-cmd
-net z-output     => hm2_5i25.0.stepgen.02.velocity-cmd
+net z-pos-cmd    => hm2_5i25.0.stepgen.02.position-cmd
 net z-pos-fb     <= hm2_5i25.0.stepgen.02.position-fb
 net z-pos-fb     => axis.2.motor-pos-fb
 net z-enable     <= axis.2.amp-enable-out
