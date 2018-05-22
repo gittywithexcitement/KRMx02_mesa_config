@@ -65,7 +65,7 @@ setp   hm2_5i25.0.stepgen.00.step_type        0
 setp   hm2_5i25.0.stepgen.00.maxaccel         [AXIS_0]STEPGEN_MAXACCEL
 setp   hm2_5i25.0.stepgen.00.maxvel           [AXIS_0]STEPGEN_MAXVEL
 
-# Position command and enable
+# Position command, feedback, and enable
 
 net x-pos-cmd    <= axis.0.motor-pos-cmd
 net x-pos-cmd    => hm2_5i25.0.stepgen.00.position-cmd
@@ -96,7 +96,7 @@ setp   hm2_5i25.0.stepgen.01.step_type        0
 setp   hm2_5i25.0.stepgen.01.maxaccel         [AXIS_1]STEPGEN_MAXACCEL
 setp   hm2_5i25.0.stepgen.01.maxvel           [AXIS_1]STEPGEN_MAXVEL
 
-# Position command and enable
+# Position command, feedback, and enable
 
 net y-pos-cmd    <= axis.1.motor-pos-cmd
 net y-pos-cmd    => hm2_5i25.0.stepgen.01.position-cmd
