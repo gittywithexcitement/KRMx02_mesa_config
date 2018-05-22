@@ -161,13 +161,9 @@ net z-pos-limit     =>  axis.2.pos-lim-sw-in
 # Everything seems to work with these commented out
 # net spindle-cw                 <=  motion.spindle-forward
 # net spindle-ccw                <=  motion.spindle-reverse
-net spindle-on             <=  motion.spindle-on
-net spindle-at-speed           =>  motion.spindle-at-speed
 
-# ---Setup spindle at speed signals---
-
-sets spindle-at-speed true
-
+net spindle-on                   <=  motion.spindle-on
+# motion.spindle-at-speed is set in custom.hal
 
 #******************************
 # connect miscellaneous signals

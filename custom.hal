@@ -6,9 +6,9 @@
 loadrt timedelay	names=spindleSpeedDelay
 addf spindleSpeedDelay 	servo-thread
 
-net spindle-on => spindleSpeedDelay.in
-net ssdo spindleSpeedDelay.out => motion.spindle-at-speed
+net spindle-on                  => spindleSpeedDelay.in
+net ssdo spindleSpeedDelay.out  => motion.spindle-at-speed
 setp spindleSpeedDelay.on-delay 1.1
-setp spindleSpeedDelay.off-delay 0
+setp spindleSpeedDelay.off-delay 3.2
 
 # TODO restore Z probe touch off (see git history), but use a subroutine
