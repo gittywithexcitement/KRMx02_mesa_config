@@ -306,11 +306,6 @@ net machine-is-on         halui.machine.is-on
 net jog-speed             halui.jog-speed 
 net MDI-mode              halui.mode.is-mdi
 
-#  ---coolant signals---
-
-net coolant-mist      <=  iocontrol.0.coolant-mist
-net coolant-flood     <=  iocontrol.0.coolant-flood
-
 #  ---probe signal---
 
 net probe-in     =>  motion.probe-input
