@@ -71,7 +71,7 @@ net x-enable     <= axis.0.amp-enable-out
 net x-enable     => hm2_5i25.0.stepgen.00.enable
 
 # ---setup home / limit switch signals---
-# TODO fix all-home which seems to be misconfigured right now. Axis reports switch is triggered.
+
 net all-home     =>  axis.0.home-sw-in
 net x-neg-limit     =>  axis.0.neg-lim-sw-in
 net x-pos-limit     =>  axis.0.pos-lim-sw-in
