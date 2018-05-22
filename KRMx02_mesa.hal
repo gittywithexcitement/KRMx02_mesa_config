@@ -40,7 +40,8 @@ net spindle-on hm2_5i25.0.gpio.007.out
 net estop-ext     <=  hm2_5i25.0.gpio.003.in_not
 
 # --- ALL-HOME ---
-net all-home     <=  hm2_5i25.0.gpio.013.in
+# TODO change wiring to Normally Closed. That way if the wire breaks, homing switches will appear closed and I will be aware of the error.
+net all-home     <=  hm2_5i25.0.gpio.013.in_not
 
 # --- PROBE-IN ---
 net probe-in     <=  hm2_5i25.0.gpio.014.in
