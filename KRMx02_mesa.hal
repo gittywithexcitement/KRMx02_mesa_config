@@ -82,25 +82,6 @@ net x-pos-limit     =>  axis.0.pos-lim-sw-in
 #  AXIS Y
 #*******************
 
-# setp   pid.y.Pgain     [AXIS_1]P
-# setp   pid.y.Igain     [AXIS_1]I
-# setp   pid.y.Dgain     [AXIS_1]D
-# setp   pid.y.bias      [AXIS_1]BIAS
-# setp   pid.y.FF0       [AXIS_1]FF0
-# setp   pid.y.FF1       [AXIS_1]FF1
-# setp   pid.y.FF2       [AXIS_1]FF2
-# setp   pid.y.deadband  [AXIS_1]DEADBAND
-# setp   pid.y.maxoutput [AXIS_1]MAX_OUTPUT
-# setp   pid.y.error-previous-target true
-# setp   pid.y.maxerror .0005
-
-# net y-index-enable  <=> pid.y.index-enable
-# net y-enable        =>  pid.y.enable
-# net y-pos-cmd       =>  pid.y.command
-# net y-vel-cmd       =>  pid.y.command-deriv
-# net y-pos-fb        =>  pid.y.feedback
-# net y-output        =>  pid.y.output
-
 # Step Gen signals/setup
 
 setp   hm2_5i25.0.stepgen.01.dirsetup        [AXIS_1]DIRSETUP
@@ -112,18 +93,6 @@ setp   hm2_5i25.0.stepgen.01.position-scale  -[AXIS_1]STEP_SCALE
 setp   hm2_5i25.0.stepgen.01.step_type        0
 setp   hm2_5i25.0.stepgen.01.maxaccel         [AXIS_1]STEPGEN_MAXACCEL
 setp   hm2_5i25.0.stepgen.01.maxvel           [AXIS_1]STEPGEN_MAXVEL
-#setp    hm2_5i25.0.gpio.006.invert_output true
-# TODO is the above invert_output applied to the correct GPIO?
-# for old setup:
-#x axis was inverted with:
-#setp parport.0.pin-03-out-invert 1
-#the .pin file has:
-# 3      4   IOPort       StepGen          0        Dir             (Out)
-
-#first y axis motor was inverted with:
-#setp parport.0.pin-05-out-invert 1
-#the .pin file has:
-# 5      8   IOPort       StepGen          1        Dir             (Out)
 
 # Position command and enable
 
