@@ -1,0 +1,1 @@
+pin+halui.machine.is-on pin+halui.machine.on pin+hm2_5i25.0.stepgen.04.enable pin+motion.enable sig+x-enable sig+machine-is-enabled sig+machine-is-on sig+estop-ext sig+estop-out pin+hm2_5i25.0.gpio.003 pin+hm2_5i25.0.gpio.003.in pin+hm2_5i25.0.gpio.003.in_not pin+iocontrol.0.emc-enable-in

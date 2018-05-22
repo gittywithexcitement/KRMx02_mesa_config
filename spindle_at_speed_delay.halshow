@@ -1,0 +1,1 @@
+sig+spindle-manual-stop sig+spindle-on sig+ssdo pin+motion.spindle-at-speed pin+motion.spindle-on

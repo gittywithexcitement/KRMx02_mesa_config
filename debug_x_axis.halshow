@@ -1,0 +1,1 @@
+sig+x-enable sig+x-pos-cmd pin+hm2_5i25.0.stepgen.00.control-type pin+hm2_5i25.0.stepgen.00.position-cmd pin+hm2_5i25.0.stepgen.00.enable
