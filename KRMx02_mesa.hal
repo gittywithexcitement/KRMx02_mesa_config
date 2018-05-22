@@ -83,7 +83,6 @@ setp   hm2_5i25.0.stepgen.00.position-scale  [AXIS_0]STEP_SCALE
 setp   hm2_5i25.0.stepgen.00.step_type        0
 setp   hm2_5i25.0.stepgen.00.maxaccel         [AXIS_0]STEPGEN_MAXACCEL
 setp   hm2_5i25.0.stepgen.00.maxvel           [AXIS_0]STEPGEN_MAXVEL
-setp   hm2_5i25.0.gpio.002.invert_output      true
 # TODO is the above invert_output applied to the correct GPIO?
 # for old setup:
 #x axis was inverted with:
