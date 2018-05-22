@@ -54,25 +54,6 @@ net probe-in     <=  hm2_5i25.0.gpio.014.in
 #  AXIS X
 #*******************
 
-# setp   pid.x.Pgain     [AXIS_0]P
-# setp   pid.x.Igain     [AXIS_0]I
-# setp   pid.x.Dgain     [AXIS_0]D
-# setp   pid.x.bias      [AXIS_0]BIAS
-# setp   pid.x.FF0       [AXIS_0]FF0
-# setp   pid.x.FF1       [AXIS_0]FF1
-# setp   pid.x.FF2       [AXIS_0]FF2
-# setp   pid.x.deadband  [AXIS_0]DEADBAND
-# setp   pid.x.maxoutput [AXIS_0]MAX_OUTPUT
-# setp   pid.x.error-previous-target true
-# setp   pid.x.maxerror .0005
-
-# net x-index-enable  <=> pid.x.index-enable
-# net x-enable        =>  pid.x.enable
-# net x-pos-cmd       =>  pid.x.command
-# net x-vel-cmd       =>  pid.x.command-deriv
-# net x-pos-fb        =>  pid.x.feedback
-# net x-output        =>  pid.x.output
-
 # Step Gen signals/setup
 
 setp   hm2_5i25.0.stepgen.00.dirsetup        [AXIS_0]DIRSETUP
@@ -83,25 +64,11 @@ setp   hm2_5i25.0.stepgen.00.position-scale  [AXIS_0]STEP_SCALE
 setp   hm2_5i25.0.stepgen.00.step_type        0
 setp   hm2_5i25.0.stepgen.00.maxaccel         [AXIS_0]STEPGEN_MAXACCEL
 setp   hm2_5i25.0.stepgen.00.maxvel           [AXIS_0]STEPGEN_MAXVEL
-# TODO is the above invert_output applied to the correct GPIO?
-# for old setup:
-#x axis was inverted with:
-#setp parport.0.pin-03-out-invert 1
-#the .pin file has:
-# 3      4   IOPort       StepGen          0        Dir             (Out)
 
-#first y axis motor was inverted with:
-#setp parport.0.pin-05-out-invert 1
-#the .pin file has:
-# 5      8   IOPort       StepGen          1        Dir             (Out)
+# Position command and enable
 
-
-# ---closedloop stepper signals---
-
-# position command and feedback
 net x-pos-cmd    <= axis.0.motor-pos-cmd
-net x-pos-cmd => hm2_5i25.0.stepgen.00.position-cmd
-
+net x-pos-cmd    => hm2_5i25.0.stepgen.00.position-cmd
 net x-enable     <= axis.0.amp-enable-out
 net x-enable     => hm2_5i25.0.stepgen.00.enable
 
@@ -146,6 +113,16 @@ setp   hm2_5i25.0.stepgen.01.maxaccel         [AXIS_1]STEPGEN_MAXACCEL
 setp   hm2_5i25.0.stepgen.01.maxvel           [AXIS_1]STEPGEN_MAXVEL
 setp    hm2_5i25.0.gpio.006.invert_output true
 # TODO is the above invert_output applied to the correct GPIO?
+# for old setup:
+#x axis was inverted with:
+#setp parport.0.pin-03-out-invert 1
+#the .pin file has:
+# 3      4   IOPort       StepGen          0        Dir             (Out)
+
+#first y axis motor was inverted with:
+#setp parport.0.pin-05-out-invert 1
+#the .pin file has:
+# 5      8   IOPort       StepGen          1        Dir             (Out)
 
 # ---closedloop stepper signals---
 
