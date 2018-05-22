@@ -100,11 +100,6 @@ setp   hm2_5i25.0.gpio.002.invert_output      true
 
 # ---closedloop stepper signals---
 
-net x-pos-cmd    <= axis.0.motor-pos-cmd
-net x-vel-cmd    <= axis.0.joint-vel-cmd
-net x-output     => hm2_5i25.0.stepgen.00.velocity-cmd
-net x-pos-fb     <= hm2_5i25.0.stepgen.00.position-fb
-net x-pos-fb     => axis.0.motor-pos-fb
 net x-enable     <= axis.0.amp-enable-out
 net x-enable     => hm2_5i25.0.stepgen.00.enable
 
